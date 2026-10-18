@@ -1,0 +1,1 @@
+- [Recipient editing boundary](birthday-surprise-editor.md) — Keep the shared birthday reveal read-only; put any creator editing outside the recipient experience.

@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "A Birthday Surprise for Shubhanandhini"
+description = "A cinematic, mobile-first birthday surprise website from Dhanu to Shubhanandhini, with an editable love letter, personal photo gallery, music, interactive gift, cake, and fireworks finale."
+version = "1.0.0"
+id = "artifacts/birthday-surprise"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25201
+
+[services.development]
+run = "pnpm --filter @workspace/birthday-surprise run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/birthday-surprise", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/birthday-surprise/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25201"
+BASE_PATH = "/"
